@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SumApp</title>
+</head>
+<body>
+<h2>Sumadora</h2>
+
+<input id="a" type="number" placeholder="Numero 1">
+<input id="b" type="number" placeholder="Numero 2">
+
+<button onclick="sumar()">Sumar</button>
+
+<p>Resultado: <span id="resultado"></span></p>
+
+<script>
+    function sumar() {
+        const a = document.getElementById("a").value;
+        const b = document.getElementById("b").value;
+
+        fetch(`/sumar?a=${a}&b=${b}`)
+            .then(r => r.text())
+            .then(d => document.getElementById("resultado").innerText = d);
+    }
+</script>
+</body>
+</html>
